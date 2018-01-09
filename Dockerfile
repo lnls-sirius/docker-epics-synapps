@@ -5,5 +5,5 @@ FROM lnls/epics-base:debian-9.2
 RUN rm -rf /tmp/epics-dev && \
     git clone https://github.com/lnls-sirius/epics-dev /tmp/epics-dev && \
     cd /tmp/epics-dev && \
-    git checkout aca0fe61551acd390eeb68ab9c4b149102044434 && \
+    git checkout bc310197e5e42ec2edf6e1ca076dd33769c263e6 && \
     ./run-all.sh -o -i -c -n yes
