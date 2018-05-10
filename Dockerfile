@@ -1,4 +1,11 @@
 FROM lnls/epics-base:base-7.0-debian-9
 
-RUN cd /tmp/epics-dev && \
-    ./run-all.sh -o -i -c -n yes
+ENV COMMIT base-7.0
+
+RUN git clone https://github.com/lnls-sirius/epics-dev.git /tmp/epics-dev && \
+    cd /tmp/epics-dev && \
+    git checkout ${COMMIT} && \
+    ./run-all.sh -o -i -c -n yes && \
+    cd / && \
+    rm -rf /tmp/epics-dev && \
+    rm -rf /var/lib/apt/lists/*
