@@ -1,4 +1,4 @@
-FROM lnls/epics-base:base-7.0-debian-9.2
+FROM lnls/epics-base:base-7.0-debian-9.5
 
 ENV COMMIT base-7.0
 
