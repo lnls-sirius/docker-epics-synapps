@@ -1,4 +1,4 @@
-FROM lnls/epics-base:base-3.15-debian-9
+FROM lnls/epics-base:base-3.15-debian-9.2
 
 ENV COMMIT base-3.15
 
