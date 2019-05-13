@@ -1,6 +1,6 @@
 FROM lnls/epics-base:base-7.0-debian-9.5
 
-ENV COMMIT base-7.0-synapps-lnls-R1-0-0
+ENV COMMIT base-7.0-synapps-lnls-R1-1-1
 
 RUN git clone https://github.com/lnls-sirius/epics-dev.git /tmp/epics-dev && \
     cd /tmp/epics-dev && \
