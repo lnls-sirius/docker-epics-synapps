@@ -1,8 +1,8 @@
 #!/bin/sh
 set -exu
 
-DOCKER_REGISTRY=docker.io
-DOCKER_USER_GROUP=lnls
+DOCKER_REGISTRY=dockerregistry.lnls-sirius.com.br
+DOCKER_USER_GROUP=gas
 DOCKER_IMAGE_PREFIX=${DOCKER_REGISTRY}/${DOCKER_USER_GROUP}
 
 AUTHOR="Claudio F. Carneiro <claudiofcarneiro@hotmail.com>"
