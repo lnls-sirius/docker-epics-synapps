@@ -57,3 +57,19 @@ RUN set -x;\
        configure/RELEASE;\
    make -j$(nproc)
 
+# procCtrl app
+COPY procCtrl /opt/epics/procCtrl
+ENV PROC_CTRL_APP /opt/epics/procCtrl
+ENV PROC_CTRL_APP_BOOT ${PROC_CTRL_APP}/iocBoot/iocprocCtrl
+RUN set -xe; \
+    cd /opt/epics/procCtrl; \
+    sed -i\
+       -e 's|^EPICS_BASE=.*$|EPICS_BASE=/opt/epics/base|' \
+       -e 's|^SUPPORT=.*$|SUPPORT=/opt/epics/synApps/support|' \
+       -e "s|^PROCSERVCONTROL=.*$|PROCSERVCONTROL=${PROCSERVCONTROL}|" \
+       -e 's|^SNCSEQ=.*$|SNCSEQ=$(SUPPORT)/seq-2-2-6|' \
+       -e 's|^ASYN=.*$|ASYN=$(SUPPORT)/asyn-R4-35|' \
+       -e 's|^BUSY=.*$|BUSY=$(SUPPORT)/busy-R1-7-1|' \
+       -e "s|^CAPUTLOG=.*$|CAPUTLOG=\$(SUPPORT)/${CAPUTLOG}|" \
+       configure/RELEASE; \
+   make -j$(nproc)
